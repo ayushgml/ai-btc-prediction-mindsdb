@@ -36,11 +36,8 @@ def predict():
                     HORIZON 72
                     USING ENGINE = 'statsforecast';"""
   model_train_resp = requests.post(url, json={'query': model_query})
-  print(requests.post(url, json={'query': 'DESCRIBE btc_price_predictor;'}).json()['data'][0][6])
   while(requests.post(url, json={'query': 'DESCRIBE btc_price_predictor;'}).json()['data'][0][6] == 'generating'):
-    print(requests.post(url, json={'query': 'DESCRIBE btc_price_predictor;'}).json()['data'][0][6])
     time.sleep(5)
-  
   
   # # requesting mindsdb for predicted data
   resp = requests.post(url, json={'query':

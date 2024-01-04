@@ -8,3 +8,5 @@ mysqlclient
 uvicorn
 jinja2
 yfinance
+pydantic
+flask

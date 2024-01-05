@@ -1,4 +1,5 @@
-from flask import Flask
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import yfinance as yf
 import pandas as pd
 from sqlalchemy import create_engine
@@ -6,13 +7,14 @@ from env import config
 import requests
 import time
 
-app = Flask(__name__)
+app = FastAPI()
+
 
 DATABASE_URL = config("DATABASE_URL", cast=str, default=None)
 DATABASE_URL is not None
 engine = create_engine(str(DATABASE_URL))
 
-@app.route('/predict', methods=['GET'])
+@app.get('/predict')
 def predict():
   # getting data from Yahoo finance
   btc = yf.Ticker("BTC-USD")
@@ -32,7 +34,7 @@ def predict():
                       )
                     PREDICT Open
                     ORDER BY Datetime
-                    WINDOW 2160
+                    WINDOW 240
                     HORIZON 72
                     USING ENGINE = 'statsforecast';"""
   model_train_resp = requests.post(url, json={'query': model_query})
@@ -45,7 +47,3 @@ def predict():
 
   # response
   return resp.json()
-  
-
-if __name__ == '__main__':
-  app.run(debug=True)

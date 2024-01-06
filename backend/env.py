@@ -1,7 +1,7 @@
 import pathlib
 from decouple import Config, RepositoryEnv
 
-BASE_DIR = pathlib.Path(__file__)
+BASE_DIR = pathlib.Path(__file__).parent
 ENV_FILE_PATH = BASE_DIR / '.env'
 
 def get_config():

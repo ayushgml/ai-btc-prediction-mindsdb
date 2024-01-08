@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import env from 'react-dotenv';
+
 
 interface PredictionResponse {
   column_names: string[];
@@ -13,16 +15,16 @@ export default function Home() {
   const [predictionData, setPredictionData] = useState<PredictionResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
+  const BACKEND_URL = "http://backend:8000/predict/";
+
   const fetchData = async () => {
     try {
       
       setLoading(true);
-      const response = await fetch('http://localhost:8000/predict', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        }
+      const response = await fetch(BACKEND_URL, {
+        method: 'POST'
       });
+      
 
       if (response.ok) {
         console.log("sending a request");

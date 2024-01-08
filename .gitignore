@@ -1,6 +1,7 @@
 private/
 venv/
+notebooks/.ipynb*
+notebooks/__pycache__
+*.pyc
+backend/.env
 .env
-notebooks/
-backend/Dockerfile
-frontend/Dockerfile

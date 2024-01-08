@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 print("starting the program")
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("MARIADB_DATABASE_URL")
 DATABASE_URL is not None
 engine = create_engine(str(DATABASE_URL))
 

@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 import requests
 import time
 import os
+from env import config
 
 app = FastAPI()
 

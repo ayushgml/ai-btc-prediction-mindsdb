@@ -3,5 +3,4 @@ venv/
 notebooks/.ipynb*
 notebooks/__pycache__
 *.pyc
-backend/.env
-.env
+*.env

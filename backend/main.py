@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import yfinance as yf
 from sqlalchemy import create_engine
-from env import config
 import requests
 import time
+import os
 
 app = FastAPI()
 
@@ -34,7 +34,7 @@ def predict():
   df.to_sql(table_name, engine, if_exists='replace', index=True)
   
   
-  url = config("MINDSDB_URL", cast=str, default=None)
+  url = os.getenv("MINDSDB_URL")
   drop_model_query = """DROP MODEL IF EXISTS mindsdb.btc_price_predictor;""";
   requests.post(url, json={'query': drop_model_query})
   model_query = """CREATE MODEL mindsdb.btc_price_predictor
@@ -46,7 +46,7 @@ def predict():
                     WINDOW 240
                     HORIZON 12
                     USING ENGINE = 'statsforecast';"""
-  model_train_resp = requests.post(url, json={'query': model_query})
+  requests.post(url, json={'query': model_query})
   while(requests.post(url, json={'query': 'DESCRIBE btc_price_predictor;'}).json()['data'][0][6] == 'generating'):
     time.sleep(5)
   

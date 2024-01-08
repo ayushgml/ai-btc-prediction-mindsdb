@@ -1,1 +1,1 @@
-ssh -i private/ssh-key.pem ubuntu@54.167.71.77
+ssh -i private/maria-secret-key.pem ubuntu@16.171.139.237

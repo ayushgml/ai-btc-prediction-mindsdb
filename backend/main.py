@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 
-DATABASE_URL = config("DATABASE_URL", cast=str, default=None)
+DATABASE_URL = config("MARIADB_DATABASE_URL", cast=str, default=None)
 DATABASE_URL is not None
 engine = create_engine(str(DATABASE_URL))
 
@@ -30,6 +30,7 @@ def predict():
   
   # inserting data into mariadb
   table_name = "btc_price_data"
+  print(DATABASE_URL)
   df.to_sql(table_name, engine, if_exists='replace', index=True)
   
   

@@ -1,3 +1,6 @@
 private/
 venv/
 .env
+notebooks/
+backend/Dockerfile
+frontend/Dockerfile

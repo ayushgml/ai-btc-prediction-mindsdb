@@ -17,7 +17,7 @@ export default function Home() {
     try {
       
       setLoading(true);
-      const response = await fetch('http://fastapi-app:8000/predict', {
+      const response = await fetch('http://localhost:8000/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

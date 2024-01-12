@@ -6,8 +6,6 @@
   <a href="https://github.com/ayushgml/ai-btc-prediction-mindsdb.git">
   
   </a>
-  <!-- A cover image in assets/cover.png -->
-  <img src="assets/cover.png" alt="Logo" width="100%" height="auto">
 
   <h1 align="center">Bitcoin predicting AI using SQL</h1>
 
@@ -15,6 +13,7 @@
     A fullstack applicationthat uses MindsDB, MariaDB, FastAPI, Docker, AWS EC2 and NextJS to predict the price of Bitcoin.
 </div>
 
+<img src="assets/cover.png" alt="Logo" width="100%" height="auto">
 
 ## About The Project
 

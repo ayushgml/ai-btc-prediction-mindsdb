@@ -5,8 +5,8 @@ WITH
     "host": "",       -- EC2 public IP here
     "port": 3306,
     "database": "btc_price",
-    "user": "mindsdb",
-    "password": ""    -- mindsdb user password here
+    "user": "root",
+    "password": ""    -- root user password here
   };
 
 SELECT * FROM btc_datasource.btc_price_data;

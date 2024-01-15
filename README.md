@@ -149,6 +149,10 @@ This project is a fullstack application that uses MindsDB, MariaDB, FastAPI, Doc
 6. Your app should be running on `http://localhost:3000` and you should be able to see the predictions on the frontend!
 
 
+## Contribution
+The project is open to contributions. Feel free to open a pull request or an issue if you find a bug or want to add a feature.
+
+
 ## Contact
 
 Ayush Gupta - [@itsayush\_\_](https://twitter.com/itsayush__) - ayushgml@gmail.com
